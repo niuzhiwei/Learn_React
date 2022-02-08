@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <script type="text/babel">
+            class App extends React.Component {
+                constructor() {
+                    super();
+                    this.state = {
+                        isLogin: false,
+                    };
+                }
+                render() {
+                    const { isLogin } = this.state;
+                    return (
+                        <div>
+                            {this.state.isLogin ? (
+                                <h2>欢迎回来~</h2>
+                            ) : (
+                                <h2>请先登录~</h2>
+                            )}
+
+                            <hr />
+                            <h2 style={{ display: isLogin ? "block" : "none" }}>
+                                你好啊
+                            </h2>
+                            <button onClick={(e) => this.loginClick()}>
+                                {isLogin ? "退出" : "登录"}
+                            </button>
+                        </div>
+                    );
+                }
+                loginClick() {
+                    this.setState({
+                        isLogin: !this.state.isLogin,
+                    });
+                }
+            }
+            ReactDOM.render(<App />, document.getElementById("app"));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <script type="text/babel">
+            class App extends React.Component {
+                constructor() {
+                    super();
+                    this.state = {
+                        title: "标题",
+                        imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png?param=140*140",
+                        active: true,
+                    };
+                }
+                render() {
+                    const { title, imgUrl, active } = this.state;
+                    return (
+                        <div>
+                            <h2 title={title}>我是标题</h2>
+                            <img src={imgUrl} alt="" />
+
+                            <div className="box title">我是div元素</div>
+                            <div
+                                className={
+                                    "box title " + (active ? "active" : "")
+                                }
+                            >
+                                我也是div元素
+                            </div>
+                            <label htmlFor=""></label>
+
+                            <div style={{ fontSize: "10px", color: "red" }}>
+                                我是div绑定style属性
+                            </div>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<App />, document.getElementById("app"));
+        </script>
+    </body>
+</html>

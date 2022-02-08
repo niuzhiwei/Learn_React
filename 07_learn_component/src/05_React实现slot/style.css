@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.nav-bar {
+    display: flex;
+}
+.nav-left,
+.nav-right {
+    width: 70px;
+    height: 44px;
+    background-color: red;
+}
+.nav-center {
+    flex: 1;
+    height: 44px;
+    background-color: blue;
+}
