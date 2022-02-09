@@ -1,20 +1,10 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import {
-  addAction,
-  changeBannersAction,
-  changeRecommendsAction,
-} from "../store/actionCreators";
-import axios from "axios";
+import { addAction, getHomeMultidataAction } from "../store/actionCreators";
 
 class Home extends PureComponent {
-  async componentDidMount() {
-    const res = await axios({
-      url: "http://123.207.32.32:8000/home/multidata",
-    });
-    const data = res.data.data;
-    this.props.changeBanners(data.banner.list);
-    this.props.changeRecommends(data.recommend.list);
+  componentDidMount() {
+    this.props.getHomeMultidata();
   }
   render() {
     return (
@@ -42,11 +32,8 @@ const mapDispatchToProps = (dispatch) => {
     addNumber: function (num) {
       dispatch(addAction(num));
     },
-    changeBanners: function (banners) {
-      dispatch(changeBannersAction(banners));
-    },
-    changeRecommends: function (recommnends) {
-      dispatch(changeRecommendsAction(recommnends));
+    getHomeMultidata() {
+      dispatch(getHomeMultidataAction);
     },
   };
 };

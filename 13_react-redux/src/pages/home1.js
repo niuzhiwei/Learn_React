@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
-import { connect } from "../utils/connect";
+// import { connect } from "../utils/connect";
+import { connect } from "react-redux";
 import { addAction } from "../store/actionCreators";
 
 function Home(props) {
