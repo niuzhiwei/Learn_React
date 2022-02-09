@@ -1,18 +1,20 @@
 import React, { PureComponent } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
 
-function History() {
+export function History() {
     return <h2>企业成立于1911</h2>;
 }
-function Cultrue() {
+export function Cultrue() {
     return <h2>创新</h2>;
 }
-function Contact() {
+export function Contact() {
     return <h2>我的电话1391231231</h2>;
 }
 
 export class About extends PureComponent {
     render() {
+        console.log(this.props.route.routes);
         return (
             <div>
                 <NavLink exact to="/about">
@@ -26,6 +28,8 @@ export class About extends PureComponent {
                     <Route path="/about/culture" component={Cultrue}></Route>
                     <Route path="/about/contact" component={Contact}></Route>
                 </Switch>
+
+                {renderRoutes(this.props.route.routes)}
 
                 <h2>About</h2>
             </div>
